@@ -9,7 +9,7 @@
 #  def every_other_char
 #    return_string = ""
 #    split.map.each_with_index do |word, index|
-#      return_string << char if index.even?
+#      return_string << word if index.even?
 #    end
 #    return_string.to_s
 #  end
@@ -20,7 +20,7 @@
 
 class String
   def every_other_char
-    to_return = ''
+    to_return = ""
     each_char.with_index do |char, index|
       to_return << char if index.even?
     end
