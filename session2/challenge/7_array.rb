@@ -11,10 +11,12 @@
 
 def alternate_words(string)
   return_array = []
-  string.split.each_with_index do |word, index|
+  string = string.gsub(/[!@$#%^&*()-=_+:;,.?]/, " ").split(" ")
+  string.each_with_index do |word, index|
     return_array << word if index.even?
   end
   return_array
 end
 
-#This is partially working.. I need to find a solution for the characters. RegEx ?
+# This is working and passing validation but I'm still missing some of the characters not to be considered
+# Revisit this to make sure all chars are included !!!!
