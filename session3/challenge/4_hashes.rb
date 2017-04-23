@@ -5,3 +5,9 @@
 # There will be no punctuation in the strings.
 #
 # first_pos "The dog and the cat and the cow" # => {"The" => 0, "dog" => 1, "and" => 2, "the" => 3, "cat" => 4, "cow" => 7}
+
+def first_pos(string)
+  return_hash = {}
+  string.split.each.with_index { |word, index| return_hash[word] = index if !return_hash.key?(word)}
+  return_hash
+end
