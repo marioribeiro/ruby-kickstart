@@ -29,6 +29,13 @@
 #   end
 # end
 
+# Initial solution
+#def array_init(size = 5, &block)
+#  size ||= (100 * size).to_s
+#  block ? Array.new(size, yield) : Array.new(size, yield)
+#end
 
-def array_init
+def array_init(size=5, &block)
+  block ||= Proc.new { |i| (100 * i).to_s }
+  Array.new(size, &block)
 end
