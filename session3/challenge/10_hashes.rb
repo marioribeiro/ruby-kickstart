@@ -28,6 +28,17 @@
 #
 # create it from scratch :)
 
+def pathify(paths = Hash.new)
+  return_paths = []
 
-def pathify
+  return paths.map { |path| '/' + path } if paths.is_a? Array
+
+  paths.each do |parent_path, child_dirs|
+    parent_path = '/' + parent_path
+    child_paths = pathify(child_dirs)
+      child_paths.each do |child_path|
+        return_paths << (parent_path + child_path)
+      end
+    end
+  return_paths
 end
