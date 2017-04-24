@@ -17,3 +17,14 @@
 # match_maker true,  true,  true, true, nil     # => [false, true]
 # match_maker true,  true,  true, 0, nil        # => [false, true]
 
+
+def match_maker(opposites_attract, *elements)
+  return_array = []
+  elements.each_slice 2 do |first, last|
+    first  = !!first # Convert the value to a bolean ?
+    last   = !!last # Convert the value to a bolean ?
+    result = opposites_attract ? first != last : first == last
+    return_array << result
+  end
+  return_array
+end
